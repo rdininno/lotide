@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const head = function(arr){
+const head = function(arr) {
   return arr[0];
 };
 
