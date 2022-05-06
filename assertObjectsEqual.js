@@ -1,12 +1,4 @@
-const assertEqual = function (actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🚩🚩🚩 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-const eqArrays = function (a, b) {
+const eqArrays = (a, b) => {
   let isEqual = false;
 
   if (a.length !== b.length) {
@@ -24,7 +16,7 @@ const eqArrays = function (a, b) {
   }
 
   return isEqual;
-}
+};
 
 const eqObjects = (object1, object2) => {
   const keysObject1 = Object.keys(object1);
@@ -49,7 +41,7 @@ const eqObjects = (object1, object2) => {
   }
 
   return true;
-}
+};
 
 const assertObjectsEqual = (actual, expected) => {
   const inspect = require('util').inspect;
@@ -62,10 +54,10 @@ const assertObjectsEqual = (actual, expected) => {
 };
 
 
-assertObjectsEqual({ a: "1", b: "2", c: "3" }, { a: "1", b: "2", c: "3" }) // true
-assertObjectsEqual({ a: "1", b: "2", c: 3 }, { a: "1", b: "2", c: "3" }) // false
-assertObjectsEqual({ a: "1", b: "2", c: "3" }, { a: "1", b: "2" }) // false
-assertObjectsEqual({ a: "1", b: "2" }, { a: "1", b: "2" }) //true
-assertObjectsEqual({ a: "one", b: 2, c: true }, { a: "one", b: 2, c: true }) //true
-assertObjectsEqual({ a: "one", b: 2, c: false }, { a: "one", b: 2, c: true })
-assertObjectsEqual({ a: "1", b: "2" }, { b: "2",a: "1" }) //true
+assertObjectsEqual({ a: "1", b: "2", c: "3" }, { a: "1", b: "2", c: "3" }); // true
+assertObjectsEqual({ a: "1", b: "2", c: 3 }, { a: "1", b: "2", c: "3" }); // false
+assertObjectsEqual({ a: "1", b: "2", c: "3" }, { a: "1", b: "2" }); // false
+assertObjectsEqual({ a: "1", b: "2" }, { a: "1", b: "2" }); //true
+assertObjectsEqual({ a: "one", b: 2, c: true }, { a: "one", b: 2, c: true }); //true
+assertObjectsEqual({ a: "one", b: 2, c: false }, { a: "one", b: 2, c: true }); //false
+assertObjectsEqual({ a: "1", b: "2" }, { b: "2", a: "1" }); //true

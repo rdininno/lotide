@@ -1,4 +1,4 @@
-const assertEqual = function (actual, expected) {
+const assertEqual = (actual, expected) => {
   if (actual === expected) {
     console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
@@ -13,11 +13,11 @@ const findKeyByValue = (shows, val) => {
     }
   }
 
-}
+};
 
 
 const bestTVShowsByGenre = {
-  sci_fi: "The Expanse",
+  'sci_fi': "The Expanse",
   comedy: "Brooklyn Nine-Nine",
   drama: "The Wire",
   action: "24",

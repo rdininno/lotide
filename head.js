@@ -1,4 +1,4 @@
-const assertEqual = function(actual, expected) {
+const assertEqual = (actual, expected) => {
   if (actual === expected) {
     console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
@@ -6,10 +6,10 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const head = function(arr) {
+const head = (arr) => {
   return arr[0];
 };
 
-assertEqual(head([5,6,7]), 5);
+assertEqual(head([5, 6, 7]), 5);
 assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
 assertEqual(head([4]), 6);

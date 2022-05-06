@@ -1,30 +1,30 @@
-const eqArrays = function(a, b){
+const eqArrays = (a, b) => {
   let isEqual = false;
 
-  if(a.length !== b.length){
+  if (a.length !== b.length) {
     return false;
   }
 
-  for(let i = 0; i < a.length; i++){
-    if(a[i] === b[i]){
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === b[i]) {
       isEqual = true;
-    } else if (a[i] !== b[i]){
+    } else if (a[i] !== b[i]) {
       return false;
     }
   }
 
   return isEqual;
-}
+};
 
-const assertArraysEqual = function(a, b){
-  if(eqArrays(a, b)){
+const assertArraysEqual = (a, b) => {
+  if (eqArrays(a, b)) {
     console.log(" ✅ ✅ ✅  The arrays are equal");
   } else {
     console.log("🔴 🔴 🔴 The Arrays are not equal");
   }
-}
+};
 
-const takeUntil = function (array, callback) {
+const takeUntil = (array, callback) => {
   let newArr = [];
   let index = 0;
 
@@ -40,7 +40,7 @@ const takeUntil = function (array, callback) {
   newArr = array.slice(0, index);
 
   return newArr;
-}
+};
 
 //TESTS
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
@@ -61,7 +61,7 @@ console.log(assertArraysEqual(results3, [1, 2, 5]));
 
 console.log('---');
 
-const data5 = ["This", "Array", "Should", "End", "Here", "If", "I", 
-"Have", "Anything", "To", "Say", "About", "It"];
+const data5 = ["This", "Array", "Should", "End", "Here", "If", "I",
+  "Have", "Anything", "To", "Say", "About", "It"];
 const results5 = takeUntil(data5, x => x === 'Here');
 console.log(assertArraysEqual(results5, ["This", "Array", "Should", "End"]));
