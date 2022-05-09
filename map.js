@@ -1,31 +1,3 @@
-const eqArrays = (a, b) => {
-  let isEqual = false;
-
-  if (a.length !== b.length) {
-    return false;
-  }
-
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === b[i]) {
-      isEqual = true;
-    } else if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-
-  return isEqual;
-};
-
-const assertArraysEqual = (a, b) => {
-  if (eqArrays(a, b)) {
-    console.log(" ✅ ✅ ✅  The arrays are equal");
-  } else {
-    console.log("🔴 🔴 🔴 The Arrays are not equal");
-  }
-};
-
-const words = ["ground", "control", "to", "major", "tom"];
-
 const map = (arr, callback) => {
   const results = [];
 
@@ -35,12 +7,5 @@ const map = (arr, callback) => {
   return results;
 };
 
-const results1 = map(words, word => word[0]);
-console.log(assertArraysEqual(results1, ['g', 'c', 't', 'm', 't']));
+module.exports = map;
 
-const results2 = map(words, word => word.length);
-console.log(assertArraysEqual(results2, [6, 7, 2, 5, 3]));
-
-const results3 = map(words, word => word + 's');
-console.log(assertArraysEqual(results3,
-  ["grounds", "controls", "tos", "majors", "toms"]));
