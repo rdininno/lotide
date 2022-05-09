@@ -6,27 +6,7 @@ const assertEqual = (actual, expected) => {
   }
 };
 
-const eqArrays = (a, b) => {
-  let isEqual = false;
-
-  if (a.length !== b.length) {
-    return false;
-  }
-
-  for (let i = 0; i < a.length; i++) {
-
-
-    if (a[i] === b[i]) {
-      isEqual = true;
-    } else if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-
-  return isEqual;
-};
-
-const eqObjects = (object1, object2) => {
+const eqObjects = function(object1, object2) {
   const keysObject1 = Object.keys(object1);
   const keysObject2 = Object.keys(object2);
 
@@ -37,20 +17,30 @@ const eqObjects = (object1, object2) => {
 
   //compare values of keys in each object
   for (let key of keysObject1) {
-    //if both arrays, compare
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      return eqArrays(object1[key], object2[key]);
+    //If both objects, compare
+    if (typeof object1[key] === 'object' && typeof object2[key] === 'object') {
+      return eqObjects(object1[key], object2[key]);
+    } else if (object1[key] === object2[key]) {
+      return true;
+    } else if (object1[key] !== object2[key]) {
+      return false
     }
 
-    // if key values are different return false
     if (object1[key] !== object2[key]) {
       return false;
     }
   }
-
-  return true;
 };
 
+module.exports = eqObjects;
+
+// console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })) // => true
+
+// console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) )// => false
+// console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })) // => false
+
+
+/*
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
 assertEqual(eqObjects(ab, ba), true); // => true
@@ -76,4 +66,4 @@ assertEqual(eqObjects(cd, cd2), false); // => false
 const hi = { h: "1", i: ["2", 3] };
 const ih = { 1: ["2", 3], h: "2" };
 assertEqual(eqObjects(hi, ih), false); // => false
-
+*/
