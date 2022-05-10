@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@rdininno/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lighthouse Labs Lotide project: Robert Di Ninno",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/rdininno/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Robert Di Ninno",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rdininno/lotide/issues"
@@ -23,5 +23,6 @@
   "devDependencies": {
     "chai": "^4.3.6",
     "mocha": "^10.0.0"
-  }
+  },
+  "dependencies": {}
 }
